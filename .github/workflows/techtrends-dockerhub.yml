@@ -4,7 +4,7 @@ name: TechTrends - Package with Docker
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 jobs:
   build:
