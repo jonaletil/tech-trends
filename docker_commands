@@ -1,11 +1,45 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
+docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker ps
+docker logs 8eb29ea240dc
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+WARNING:werkzeug:08/26/2022, 15:24:33,  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug:08/26/2022, 15:24:33,  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:08/26/2022, 15:26:01, 172.17.0.1 - - [26/Aug/2022 15:26:01] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:26:01, 172.17.0.1 - - [26/Aug/2022 15:26:01] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:26:01, 172.17.0.1 - - [26/Aug/2022 15:26:01] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app:08/26/2022, 15:27:10, Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug:08/26/2022, 15:27:10, 172.17.0.1 - - [26/Aug/2022 15:27:10] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:27:10, 172.17.0.1 - - [26/Aug/2022 15:27:10] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:08/26/2022, 15:35:53, 172.17.0.1 - - [26/Aug/2022 15:35:53] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:11, 172.17.0.1 - - [26/Aug/2022 15:36:11] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:17, 172.17.0.1 - - [26/Aug/2022 15:36:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:17, 172.17.0.1 - - [26/Aug/2022 15:36:17] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/26/2022, 15:36:20, Article "Kubernetes v1.20 Release Notes" retrieved!
+INFO:werkzeug:08/26/2022, 15:36:20, 172.17.0.1 - - [26/Aug/2022 15:36:20] "GET /3 HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:20, 172.17.0.1 - - [26/Aug/2022 15:36:20] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/26/2022, 15:36:21, About us page retrieved!
+INFO:werkzeug:08/26/2022, 15:36:21, 172.17.0.1 - - [26/Aug/2022 15:36:21] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:21, 172.17.0.1 - - [26/Aug/2022 15:36:21] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:08/26/2022, 15:36:24, 172.17.0.1 - - [26/Aug/2022 15:36:24] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:24, 172.17.0.1 - - [26/Aug/2022 15:36:24] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/26/2022, 15:36:46, Article "docker post" created!
+INFO:werkzeug:08/26/2022, 15:36:46, 172.17.0.1 - - [26/Aug/2022 15:36:46] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:08/26/2022, 15:36:46, 172.17.0.1 - - [26/Aug/2022 15:36:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:46, 172.17.0.1 - - [26/Aug/2022 15:36:46] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/26/2022, 15:36:50, Article "docker post" retrieved!
+INFO:werkzeug:08/26/2022, 15:36:50, 172.17.0.1 - - [26/Aug/2022 15:36:50] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug:08/26/2022, 15:36:50, 172.17.0.1 - - [26/Aug/2022 15:36:50] "GET /static/css/main.css HTTP/1.1" 304 -
+
