@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/josip.naletilic/Dokumente/UDACITY/Data Engineer - Bosch/05_cloud_native_fundamentals/project/tech-trends","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
