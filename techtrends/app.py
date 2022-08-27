@@ -1,9 +1,8 @@
 import sqlite3
-from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
-from werkzeug.exceptions import abort
-from datetime import datetime
+from flask import Flask, json, render_template, request, url_for, redirect, flash
 import logging
 import sys
+import os
 
 # Define the Flask application
 app = Flask(__name__)
@@ -61,7 +60,7 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        app.logger.error('Article \"%s\" does not exist!', post['title'])
+        app.logger.error('Article does not exist!')
         return render_template('404.html'), 404
     else:
         app.logger.info('Article \"%s\" retrieved!', post['title'])
@@ -141,11 +140,21 @@ def metrics():
 # start the application on port 3111
 if __name__ == "__main__":
     # Set logger and record the events to STDOUT & STDERR
-    # TODO: check for the stderr case - project rubric vs description
-    handlers = [logging.StreamHandler(sys.stdout)]
+    loglevel = os.getenv("LOGLEVEL", "DEBUG").upper()
+    loglevel = (
+        getattr(logging, loglevel)
+        if loglevel in ["CRITICAL", "DEBUG", "ERROR", "INFO", "WARNING", ]
+        else logging.DEBUG
+    )
+    stdout_handler = logging.StreamHandler(stream=sys.stdout)
+    stdout_handler.setLevel(logging.DEBUG)
+
+    stderror_handler = logging.StreamHandler(stream=sys.stderr)
+    stderror_handler.setLevel(logging.ERROR)
+
+    handlers = [stdout_handler, stderror_handler]
     logging.basicConfig(format='%(levelname)s:%(name)s:%(asctime)s, %(message)s',
                         datefmt='%m/%d/%Y, %H:%M:%S',
-                        level=logging.DEBUG,
-                        handlers=handlers,
-                        force=True)
+                        level=loglevel,
+                        handlers=handlers)
     app.run(host='0.0.0.0', port='3111')
