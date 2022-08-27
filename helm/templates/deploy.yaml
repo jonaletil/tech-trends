@@ -28,14 +28,14 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort }}
               protocol: {{ .Values.service.protocol }}
-            livenessProbe:
-              httpGet:
-                path: {{ .Values.livenessProbe.path }}
-                port: {{ .Values.livenessProbe.port }}
-            readinessProbe:
-              httpGet:
-                path: {{ .Values.readinessProbe.path }}
-                port: {{ .Values.readinessProbe.port }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path }}
+              port: {{ .Values.livenessProbe.port }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path }}
+              port: {{ .Values.readinessProbe.port }}
           resources:
             requests:
               memory: {{ .Values.resources.requests.memory }}
